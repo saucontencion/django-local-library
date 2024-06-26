@@ -24,6 +24,6 @@ git add .
 git commit -m "contador = $COUNTER"
 
 # Subir los cambios al repositorio remoto (cambiar 'main' por 'master' si es necesario)
-git push origin main
+git pull origin main
 
 # chmod +x git.sh y para ejecutarlo ./git.sh
