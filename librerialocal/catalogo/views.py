@@ -15,7 +15,8 @@ class GenreDetailView(DetailView):
     template_name = 'catalogo/genre_detail.html'
 
 from .models import Book, Author, BookInstance, Genre
-
+from django.contrib.auth.decorators import login_required
+@login_required
 def index(request):
     """View function for home page of site."""
 
@@ -52,7 +53,8 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
 
-class BookListView(generic.ListView):
+
+class BookListView(LoginRequiredMixin,generic.ListView):
     model = Book
     paginate_by = 10
 
